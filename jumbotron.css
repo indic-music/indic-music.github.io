@@ -1,0 +1,29 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body 
+{
+	padding-top: 50px;
+	padding-bottom: 20px; 
+	font-family: 'Special Elite', cursive;
+	font-family: 'Oswald', sans-serif;
+	
+}
+p
+{
+	font-family: 'Alegreya', serif;
+}
+
+.progress
+{
+	background-repeat: no-repeat;
+	background-position: right top;
+	width: 200px;
+	height: 100px;
+	float: left;
+	background-color: rgb(103, 94, 136);
+	margin-right: 30px;
+}
+.progress-bar
+{
+	opacity:0.6;
+}
+

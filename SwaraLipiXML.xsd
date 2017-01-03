@@ -1,0 +1,388 @@
+<?xml version='1.0'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<!-- ROOT ELEMENT SWARALIPI AND ITS FIVE CHILD ELEMENTS -->
+	<xsd:element name="SWARALIPI">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="INFO" type="InfoType" />
+				<xsd:element name="TAAL" type="TaalType" />
+				<xsd:element name="RAAG" type="RaagType" />
+				<xsd:element name="SHEET" type="SheetType" />
+				<xsd:element name="MAPPING" type="MappingType" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- INFO ELEMENT -->
+	<xsd:complexType name="InfoType">
+		<xsd:sequence>
+			<xsd:element name="TITLE" type="xsd:string" />
+			<xsd:element name="AUTHOR" type="xsd:string" />
+			<xsd:element name="FILENAME" type="fileNameType" />
+			<xsd:element name="LYRIC_LANGUAGE" type="xsd:string" />
+			<xsd:element name="NOTATION_SYSTEM" type="xsd:notationSystemType" />
+			<xsd:element name="NOTE_FONT_NAME" type="xsd:string" />
+			<xsd:element name="LYRIC_FONT_NAME" type="xsd:string" />
+			<xsd:element name="DATE_TIME" type="xs:dateTime" />
+			<xsd:element name="GENRE" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE FILENAME MUST END WITH A .swl EXTENSION -->
+	<xsd:simpleType name="fileNameType">
+		<xsd:restriction base="xsd:string">
+			<xs:pattern value="([_a-zA-Z]+[.][s][w][l])" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- NOTATION SYSTEM MUST BE ONE OF THE FOLLOWING FIVE CHOICES -->
+	<xsd:simpleType name="notationSystemType">
+		<xsd:restriction base="xsd:string">
+			<xs:enumeration value="Akarmatrik" />
+			<xs:enumeration value="Bhatkhande" />
+			<xs:enumeration value="Paluskar" />
+			<xs:enumeration value="Dandamatrik" />
+			<xs:enumeration value="Najrul" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- THE TAALA ELEMENT -->
+	<xsd:complexType name="TaalType">
+		<xsd:sequence>
+			<xsd:element name="TAAL_NAME" type="taalNameType" />
+			<xsd:element name="BIBHAGA" type="bibhagaType" />
+			<xsd:element name="MAATRA" type="maatraType" />
+			<xsd:element name="AVARTANA" type="xsd:integer" />
+			<xsd:element name="BEAT_PATTERN" type="xsd:string" />			
+			<xsd:element name="TAALI_COUNT" type="xsd:integer" />
+			<xsd:element name="KHALI_COUNT" type="xsd:integer" />
+			<xsd:element name="TAALI_INDEX" type="xsd-string" />
+			<xsd:element name="KHALI_INDEX" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE TAALA NAME MUST BE ONE OF THE FOLLOWING LIST OF CHOICES -->
+	<xsd:simpleType name="taalNameType">
+		<xsd:restriction base="xsd:string">
+			<xs:enumeration value="Abhinandan" />
+			<xs:enumeration value="Abhiram" />
+			<xs:enumeration value="Ada Chau Taal" />
+			<xs:enumeration value="Addha" />
+			<xs:enumeration value="Anka" />
+			<xs:enumeration value="Antarkrida" />
+			<xs:enumeration value="Ardhya" />
+			<xs:enumeration value="Arjun" />
+			<xs:enumeration value="Arnima" />
+			<xs:enumeration value="Aryaa" />
+			<xs:enumeration value="Ashtamangal" />
+			<xs:enumeration value="Anka" />
+			<xs:enumeration value="At" />
+			<xs:enumeration value="Bhajni Theka" />
+			<xs:enumeration value="Brahma Taal" />
+			<xs:enumeration value="Chachar" />
+			<xs:enumeration value="Chak Taal" />
+			<xs:enumeration value="Chau Taal" />
+			<xs:enumeration value="Dadra" />
+			<xs:enumeration value="Deepchandi" />
+			<xs:enumeration value="Dhamar" />
+			<xs:enumeration value="Dhruvataal" />
+			<xs:enumeration value="Dhumali" />
+			<xs:enumeration value="Ek Taal" />
+			<xs:enumeration value="Gaja Jhampaa" />
+			<xs:enumeration value="Gajamukh" />
+			<xs:enumeration value="Hauns Vilas" />
+			<xs:enumeration value="Iktaali" />
+			<xs:enumeration value="Ikwai" />
+			<xs:enumeration value="Indra" />
+			<xs:enumeration value="Indraleen" />
+			<xs:enumeration value="Jai Taal" />
+			<xs:enumeration value="Jat" />
+			<xs:enumeration value="Jhap Taal" />
+			<xs:enumeration value="Jhoomra" />
+			<xs:enumeration value="Kalawati" />
+			<xs:enumeration value="Kandarpa" />
+			<xs:enumeration value="kapaalabhruta" />
+			<xs:enumeration value="Kawwali" />
+			<xs:enumeration value="Kehewa" />
+			<xs:enumeration value="Mani Taal" />
+			<xs:enumeration value="Matta Taal" />
+			<xs:enumeration value="Panchanan" />
+			<xs:enumeration value="Pashto" />
+			<xs:enumeration value="Punjabi" />
+			<xs:enumeration value="Roopak" />
+			<xs:enumeration value="Rudra Taal" />
+			<xs:enumeration value="Sadanand" />
+			<xs:enumeration value="Char Taal Ki Sawari" />
+			<xs:enumeration value="Pancham Sawari" />
+			<xs:enumeration value="Shikhar" />
+			<xs:enumeration value="Sujan Shikhar" />
+			<xs:enumeration value="Sul" />
+			<xs:enumeration value="Sul Phaktaa" />
+			<xs:enumeration value="Sulfakta" />
+			<xs:enumeration value="Sunand Taal" />
+			<xs:enumeration value="Tappe Ka Taal" />
+			<xs:enumeration value="Teen Taal" />
+			<xs:enumeration value="Tevra" />
+			<xs:enumeration value="Tilwada" />
+			<xs:enumeration value="Uday" />
+			<xs:enumeration value="Udeerna" />
+			<xs:enumeration value="Ukshav" />
+			<xs:enumeration value="Ushakiran" />
+			<xs:enumeration value="Vikram Taal" />
+			<xs:enumeration value="Yog" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- THE BIBHAGA MUST BE AN INTEGER. (MIN AND MAX VALUE TO BE SET) -->
+	<xs:element name="bibhagaType">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="1" />
+				<xs:maxInclusive value="14" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<!-- THE MAATRA MUST BE AN INTEGER. (MIN AND MAX VALUE TO BE SET) -->
+	<xs:element name="maatraType">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="3" />
+				<xs:maxInclusive value="28" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<!-- THE RAAG ELEMENT -->
+	<xsd:complexType name="RaagType">
+		<xsd:sequence>
+			<xsd:element name="RAAG_NAME" type="RaagNameType" />
+			<xsd:element name="THAAT" type="xsd:string" />
+			<xsd:element name="AROHANA" type="xsd:string" />
+			<xsd:element name="AVAROHANA" type="xsd:string" />
+			<xsd:element name="VADI" type="xsd:string" />			
+			<xsd:element name="SAMVAADI" type="xsd:string" />
+			<xsd:element name="JAATI" type="xsd:string" />
+			<xsd:element name="PAKAD" type="xsd:string" />			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- THE RAAG NAME MUST BE ONE OF THE FOLLOWING LIST OF CHOICES (INCOMPLETE) -->
+	<xsd:simpleType name="RaagNameType">
+		<xsd:restriction base="xsd:string">
+			<xs:enumeration value="Aarabhi" />									
+			<xs:enumeration value="Abheri" />
+			<xs:enumeration value="Abhogi" />
+			<xs:enumeration value="Adana" />
+			<xs:enumeration value="Ahir Lalit" />
+			<xs:enumeration value="Ahiri" />
+			<xs:enumeration value="Amrit Varshini" />
+			<xs:enumeration value="Anand Leela" />
+			<xs:enumeration value="Araj" />
+			<xs:enumeration value="Asa" />
+			<xs:enumeration value="Asavari" />
+			<xs:enumeration value="Sindhura Asabhari" />
+			<xs:enumeration value="Bageshree" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- THE SHEET ELEMENT -->
+	<xsd:complexType name="SheetType">
+		<xsd:sequence>
+			<xsd:element name="TOTAL_LINE" type="xsd:integer" />
+			<xsd:element name="LINES" type="LinesType" />				
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE LINES ELEMENT -->
+	<xsd:complexType name="LinesType">
+		<xsd:sequence>
+			<xsd:element name="LINE" type="LineType" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE LINE ELEMENT -->
+	<xsd:element name="LineType">
+		<xsd:sequence>
+			<xsd:element name="ROW_COUNT" type="xsd:integer" />
+			<xsd:element name="COL_COUNT" type="xsd:integer" />
+			<xsd:element name="ROWS" type="RowsType" />
+		</xsd:sequence>
+		<xsd:complexType>
+			<xsd:attribute name="INDEX" type="xsd:integer"/>
+		</xsd:complexType>
+	<xsd:element>
+
+	<!-- THE ROWS ELEMENT -->
+	<xsd:complexType name="RowsType">
+		<xsd:sequence>
+			<xsd:element name="ROW" type="RowType" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE ROW ELEMENT -->
+	<xsd:element name="RowType">
+		<xsd:sequence>
+			<xsd:element name="COLS" type="ColsType" />			
+		</xsd:sequence>
+		<xsd:complexType>
+			<xsd:attribute name="INDEX" type="xsd:integer"/>
+		</xsd:complexType>
+	<xsd:element>
+
+	<!-- THE COLS ELEMENT -->
+	<xsd:element name="ColsType">
+		<xsd:sequence>
+			<xsd:element name="COL" type="ColType" />			
+		</xsd:sequence>
+	<xsd:element>
+
+	<!-- THE COL ELEMENT -->
+	<xsd:element name="ColType">
+		<xsd:sequence>
+			<xsd:element name="ROW" type="RowType" />			
+		</xsd:sequence>
+		<xsd:complexType>
+			<xsd:attribute name="INDEX" type="xsd:integer"/>
+		</xsd:complexType>
+	<xsd:element>
+
+	<xsd:element name="RowType">
+		<xsd:complexType>
+			<xsd:attribute name="INDEX" type="xsd:integer"/>
+		</xsd:complexType>
+	<xsd:element>
+
+	<!-- THE MAPPING ELEMENT -->
+	<xsd:complexType name="MappingType">
+		<xsd:sequence>
+			<xsd:element name="SAPTAK" type="SaptakType" />
+			<xsd:element name="DURATION" type="DurationType" />
+			<xsd:element name="MEEND" type="MeendType" />
+			<xsd:element name="REPEAT" type="RepeatType" />
+			<xsd:element name="" type="xsd:string" />			
+			<xsd:element name="TAAL_BIBHAG" type="TaalBibhagType" />
+			<xsd:element name="AVASAN" type="AvasanType" />
+			<xsd:element name="TAAL_CYCLE" type="TaalCycleType" />			
+			<xsd:element name="SAMA" type="SamaType" />			
+			<xsd:element name="TAALI" type="TaaliType" />
+			<xsd:element name="KHALI" type="KhaliType" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE SAPTAK ELEMENT -->
+	<xsd:complexType name="SaptakType">
+		<xsd:sequence>
+			<xsd:element name="NAME" type="xsd:string" />
+			<xsd:element name="OCTAVE_NUMBER" type="xsd:integer" />
+			<xsd:element name="SWARA" type="SwaraType" />			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE SWARA ELEMENT -->
+	<xsd:complexType name="SwaraType">
+		<xsd:sequence>
+			<xsd:element name="CLASS" type="xsd:string" />
+			<xsd:element name="NAME" type="xsd:integer" />
+			<xsd:element name="KEY" type="xsd:string" />			
+			<xsd:element name="GRACE_NOTE_KEY" type="xsd:string" />			
+			<xsd:element name="MIDI_NUMBER" type="xsd:integer" />			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE DURATION ELEMENT -->
+	<xsd:complexType name="DurationType">
+		<xsd:sequence>
+			<xsd:element name="NOTE_DURATION" type="NoteDurationType" />
+			<xsd:element name="GRACE_NOTE_DURATION" type="GraceNoteDurationType" />			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE NOTE_DURATION ELEMENT -->
+	<xsd:complexType name="NoteDurationType">
+		<xsd:sequence>
+			<xsd:element name="NAME" type="xsd:string" />
+			<xsd:element name="KEY" type="xsd:string" />			
+			<xsd:element name="MEASURE" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE GRACE_NOTE_DURATION ELEMENT -->
+	<xsd:complexType name="GraceNoteDurationType">
+		<xsd:sequence>
+			<xsd:element name="NAME" type="xsd:string" />
+			<xsd:element name="KEY" type="xsd:string" />			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE MEEND ELEMENT -->
+	<xsd:complexType name="MeendType">
+		<xsd:sequence>
+			<xsd:element name="START_KEY" type="xsd:string" />
+			<xsd:element name="CON_KEY" type="xsd:string" />			
+			<xsd:element name="END_KEY" type="xsd:string" />			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE REPEAT ELEMENT -->
+	<xsd:complexType name="RepeatType">
+		<xsd:sequence>
+			<xsd:element name="START_KEY" type="xsd:string" />
+			<xsd:element name="END_KEY" type="xsd:string" />			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE TAAL_BIBHAG ELEMENT -->
+	<xsd:complexType name="TaalBibhagType">
+		<xsd:sequence>
+			<xsd:element name="KEY" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE AVASAN ELEMENT -->
+	<xsd:complexType name="AvasanType">
+		<xsd:sequence>
+			<xsd:element name="KEY" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE TAAL_CYCLE ELEMENT -->
+	<xsd:complexType name="TaalCycleType">
+		<xsd:sequence>
+			<xsd:element name="KEY" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE SAMA ELEMENT -->
+	<xsd:complexType name="SamaType">
+		<xsd:sequence>
+			<xsd:element name="KEY" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE TAALI ELEMENT -->
+	<xsd:complexType name="TaaliType">
+		<xsd:sequence>
+			<xsd:element name="KEY" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- THE KHALI ELEMENT -->
+	<xsd:complexType name="KhaliType">
+		<xsd:sequence>
+			<xsd:element name="KEY" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+
+
+
+
+
+
+	
+	
+	
