@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 	<!-- ROOT ELEMENT SWARALIPI AND ITS FIVE CHILD ELEMENTS -->
-	<xs:element name="SWARALIPI">
+	<xs:element name="swaralipixml">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="INFO" type="InfoType" />
